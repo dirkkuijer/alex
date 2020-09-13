@@ -30,7 +30,7 @@ class DB
     }
     public static function writeDB() 
     {
-        $user = 'roost';
+        $user = 'root';
         $password = '';
         $options = [
                       PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
