@@ -4,14 +4,19 @@ class DB
 {
     private static $readConnection;
     private static $writeConnection;
-
+    
     public static function readDB() 
     {
+        $user = 'root';
+        $password = '';
+        $options = [
+                      PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+                      PDO::ATTR_EMULATE_PREPARES => false
+                  ];
+        
         
         try {
-            self::$readConnection = new PDO('mysql:host=localhost;dbname=udemy', 'root', '');
-            self::$readConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            self::$readConnection->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+            self::$readConnection = new PDO('mysql:host=localhost;dbname=udemy', $user, $password, $options);
         
                 echo 'connection made with readDB'; 
         } 
@@ -25,11 +30,16 @@ class DB
     }
     public static function writeDB() 
     {
+        $user = 'roost';
+        $password = '';
+        $options = [
+                      PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+                      PDO::ATTR_EMULATE_PREPARES => false
+                  ];
+        
         
         try {
-            self::$writeConnection = new PDO('mysql:host=localhost;dbname=udemy', 'root', '');
-            self::$writeConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            self::$writeConnection->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+            self::$writeConnection = new PDO('mysql:host=localhost;dbname=udemy', $user, $password, $options);
         
                 echo 'connection made with writeDB'; 
         } 
